@@ -7,6 +7,5 @@ import com.github.martynfunclub.trackingsystem.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByName(String name);
     User findByUsername(String username);
 }

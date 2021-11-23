@@ -2,7 +2,6 @@ package com.github.martynfunclub.trackingsystem.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,11 +26,8 @@ public class MainController {
 
     @GetMapping("/")
     public String main(HttpServletRequest request, Model model) {
-
         List<WorkersPlace> places = placeService.getCurrentPlaces(request.getCookies());
-        Cookie[] cookies = request.getCookies();
         for (WorkersPlace place : places) {
-            System.out.println(place);
             place.setCurrentProduction(productionRepository.getProductionByPlaceAndEndTimeIsNull(place));
         }
         model.addAttribute("places", places);

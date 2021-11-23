@@ -45,18 +45,19 @@ public class Change {
     @OneToMany(mappedBy = "change", cascade = CascadeType.ALL)
     private Set<Production> productions;
 
-    public void setStartTime(LocalDateTime date){
+    public void setStartTime(LocalDateTime date) {
         this.startTime = date;
     }
 
-    public void setEndTime(LocalDateTime date){
+    public void setEndTime(LocalDateTime date) {
         this.endTime = date;
     }
 
-    public void setProductions(Set<Production> production){
+    public void setProductions(Set<Production> production) {
         this.productions = production;
     }
 
-    public void setUser(User user) {this.user = user;}
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
